@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import QRCode from "qrcode";
 
 const cardUrl = "https://arcnest.jp/card";
@@ -72,13 +71,13 @@ export default async function CardPage() {
             <span className="text-xs font-bold text-gold">Website</span>
             <span className="mt-2 block text-sm font-semibold text-navy">arcnest.jp</span>
           </a>
-          <Link
+          <a
             className="rounded-2xl border border-line bg-navy p-5 text-left text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-ink"
-            href="/#contact"
+            href="mailto:support@arcnest.jp"
           >
             <span className="text-xs font-bold text-sand">Contact</span>
-            <span className="mt-2 block text-sm font-semibold">お問い合わせページへ</span>
-          </Link>
+            <span className="mt-2 block break-all text-sm font-semibold">support@arcnest.jp</span>
+          </a>
         </div>
 
         <div className="mt-8 w-full rounded-2xl border border-line bg-white p-6 shadow-soft">

@@ -125,7 +125,9 @@ export default function Home() {
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
               className="inline-flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-ink"
-              href="#products"
+              href="https://timecard.arcnest.jp"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               勤怠管理アプリを見る
             </a>
@@ -170,7 +172,9 @@ export default function Home() {
             </div>
             <a
               className="inline-flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-ink"
-              href="#"
+              href="https://timecard.arcnest.jp"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               アプリを見る
             </a>
@@ -222,7 +226,7 @@ export default function Home() {
               </a>
               <a
                 className="inline-flex items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-                href="#"
+                href="mailto:support@arcnest.jp"
               >
                 メールで相談する
               </a>
