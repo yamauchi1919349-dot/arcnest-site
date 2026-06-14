@@ -22,6 +22,28 @@ const services = [
   }
 ];
 
+const products = [
+  {
+    category: "Attendance Management",
+    title: "勤怠管理アプリ",
+    description: ["スタッフ打刻、管理者確認、月次集計、権限管理に対応した小規模事業者向けの勤怠管理システムです。"],
+    href: "https://timecard.arcnest.jp",
+    ctaLabel: "アプリを見る",
+    status: ""
+  },
+  {
+    category: "Task Management",
+    title: "タスク管理アプリ（開発中）",
+    description: [
+      "時間に追われるのではなく、今やるべきことが自然に見えてくる。",
+      "期限や所要時間、利用できる時間をもとに、その時点で優先すべきタスクを整理する新しいタスク管理アプリを開発中です。",
+      "一般的なToDoリストやガントチャートとは異なり、予定変更や急な割り込みが発生しても、状況に応じて次に取り組むべきタスクを案内します。"
+    ],
+    notes: ["Webアプリとして開発中", "スマートフォン対応予定", "正式リリース時期未定"],
+    status: "開発中"
+  }
+];
+
 const templates = [
   {
     name: "日報管理システム",
@@ -116,6 +138,45 @@ function SectionHeading({ eyebrow, title }: { eyebrow?: string; title: string })
       {eyebrow ? <p className="mb-3 text-sm font-semibold text-gold">{eyebrow}</p> : null}
       <h2 className="text-3xl font-bold tracking-normal text-ink sm:text-4xl">{title}</h2>
     </div>
+  );
+}
+
+function ProductCard({ product }: { product: (typeof products)[number] }) {
+  return (
+    <article className="grid gap-8 rounded-2xl border border-line bg-white p-7 shadow-soft transition hover:-translate-y-1 hover:border-gold/50 sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center">
+      <div>
+        <div className="mb-4 flex flex-wrap items-center gap-3">
+          <p className="text-sm font-semibold text-gold">{product.category}</p>
+          {product.status ? <span className="rounded-full bg-sand px-3 py-1 text-xs font-bold text-navy">{product.status}</span> : null}
+        </div>
+        <h3 className="text-2xl font-bold text-ink">{product.title}</h3>
+        <div className="mt-4 max-w-3xl space-y-3 leading-8 text-slate-600">
+          {product.description.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+        {product.notes ? (
+          <ul className="mt-6 grid gap-2 text-sm font-medium text-slate-500 sm:grid-cols-3">
+            {product.notes.map((note) => (
+              <li className="flex items-center gap-2" key={note}>
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                {note}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+      {product.href && product.ctaLabel ? (
+        <a
+          className="inline-flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-ink"
+          href={product.href}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {product.ctaLabel}
+        </a>
+      ) : null}
+    </article>
   );
 }
 
@@ -256,23 +317,11 @@ export default function Home() {
       <section className="bg-mist py-20" id="products">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading title="プロダクト" />
-          <article className="grid gap-8 rounded-2xl border border-line bg-white p-7 shadow-soft sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <p className="mb-4 text-sm font-semibold text-gold">Attendance Management</p>
-              <h3 className="text-2xl font-bold text-ink">勤怠管理アプリ</h3>
-              <p className="mt-4 max-w-3xl leading-8 text-slate-600">
-                スタッフ打刻、管理者確認、月次集計、権限管理に対応した小規模事業者向けの勤怠管理システムです。
-              </p>
-            </div>
-            <a
-              className="inline-flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-ink"
-              href="https://timecard.arcnest.jp"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              アプリを見る
-            </a>
-          </article>
+          <div className="grid gap-6">
+            {products.map((product) => (
+              <ProductCard key={product.title} product={product} />
+            ))}
+          </div>
         </div>
       </section>
 
