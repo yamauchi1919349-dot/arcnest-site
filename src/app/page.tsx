@@ -22,6 +22,41 @@ const services = [
   }
 ];
 
+const templates = [
+  {
+    name: "日報管理システム",
+    description: "Googleスプレッドシートで日報を簡単に管理できるテンプレートです。",
+    standalonePrice: "9,800円",
+    supportPrice: "29,800円",
+    standaloneHref: "#",
+    supportHref: "#"
+  },
+  {
+    name: "見積管理システム",
+    description: "見積作成・管理を効率化するテンプレートです。",
+    standalonePrice: "14,800円",
+    supportPrice: "39,800円",
+    standaloneHref: "#",
+    supportHref: "#"
+  },
+  {
+    name: "顧客管理システム",
+    description: "顧客情報や対応履歴を一元管理できます。",
+    standalonePrice: "19,800円",
+    supportPrice: "49,800円",
+    standaloneHref: "#",
+    supportHref: "#"
+  }
+];
+
+const purchaseSteps = [
+  "商品を選択",
+  "Stripeで決済",
+  "決済完了後にダウンロード",
+  "導入サポート付きの場合は自動受付メール送信",
+  "ArcNestより3営業日以内にご連絡"
+];
+
 function ArcNestIllustration() {
   return (
     <svg
@@ -80,6 +115,65 @@ function SectionHeading({ eyebrow, title }: { eyebrow?: string; title: string })
     <div className="mb-10">
       {eyebrow ? <p className="mb-3 text-sm font-semibold text-gold">{eyebrow}</p> : null}
       <h2 className="text-3xl font-bold tracking-normal text-ink sm:text-4xl">{title}</h2>
+    </div>
+  );
+}
+
+function PurchaseButton({ href, variant, children }: { href: string; variant: "primary" | "secondary"; children: React.ReactNode }) {
+  const className =
+    variant === "primary"
+      ? "bg-navy text-white shadow-soft hover:-translate-y-0.5 hover:bg-ink"
+      : "border border-navy/20 bg-white text-navy hover:-translate-y-0.5 hover:border-navy hover:bg-mist";
+
+  return (
+    <a className={`inline-flex min-h-11 items-center justify-center rounded-lg px-4 py-3 text-sm font-semibold transition ${className}`} href={href}>
+      {children}
+    </a>
+  );
+}
+
+function TemplateCard({ template }: { template: (typeof templates)[number] }) {
+  return (
+    <article className="flex h-full flex-col rounded-2xl border border-line bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:border-gold/50 sm:p-7">
+      <div className="mb-6 h-1.5 w-12 rounded-full bg-gold" />
+      <h3 className="text-xl font-bold text-ink">{template.name}</h3>
+      <p className="mt-4 flex-1 leading-7 text-slate-600">{template.description}</p>
+      <div className="mt-7 space-y-4 border-t border-line pt-5">
+        <div className="flex items-baseline justify-between gap-4">
+          <span className="text-sm font-semibold text-slate-500">単体価格</span>
+          <span className="text-xl font-bold text-ink">{template.standalonePrice}</span>
+        </div>
+        <div className="flex items-baseline justify-between gap-4">
+          <span className="text-sm font-semibold text-slate-500">導入サポート付き</span>
+          <span className="text-xl font-bold text-ink">{template.supportPrice}</span>
+        </div>
+      </div>
+      <div className="mt-6 grid gap-3">
+        <PurchaseButton href={template.standaloneHref} variant="primary">
+          単体購入
+        </PurchaseButton>
+        <PurchaseButton href={template.supportHref} variant="secondary">
+          導入サポート付き
+        </PurchaseButton>
+      </div>
+    </article>
+  );
+}
+
+function PurchaseFlow() {
+  return (
+    <div className="mt-12 rounded-2xl border border-line bg-white p-6 shadow-soft sm:p-8">
+      <h3 className="text-2xl font-bold text-ink">購入方法</h3>
+      <div className="mt-7 grid gap-4 md:grid-cols-5">
+        {purchaseSteps.map((step, index) => (
+          <div className="rounded-xl border border-line bg-mist p-4" key={step}>
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">
+              {index + 1}
+            </div>
+            <p className="text-sm font-semibold leading-6 text-ink">{step}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -179,6 +273,22 @@ export default function Home() {
               アプリを見る
             </a>
           </article>
+        </div>
+      </section>
+
+      <section className="bg-white py-20" id="templates">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <SectionHeading eyebrow="Google Sheets + GAS" title="Googleスプレッドシート用コードテンプレート" />
+          <p className="-mt-5 mb-10 max-w-3xl leading-8 text-slate-600">
+            業務で使えるGoogleスプレッドシート＋GASテンプレートを販売しています。
+            購入後すぐにダウンロードできるプランと、導入サポート付きプランをご用意しています。
+          </p>
+          <div className="grid gap-5 lg:grid-cols-3">
+            {templates.map((template) => (
+              <TemplateCard key={template.name} template={template} />
+            ))}
+          </div>
+          <PurchaseFlow />
         </div>
       </section>
 
