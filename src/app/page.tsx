@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Reveal from "./Reveal";
 
 const navItems = [
   { label: "サービス", href: "#services" },
@@ -143,7 +144,7 @@ function SectionHeading({ eyebrow, title }: { eyebrow?: string; title: string })
 
 function ProductCard({ product }: { product: (typeof products)[number] }) {
   return (
-    <article className="grid gap-8 rounded-2xl border border-line bg-white p-7 shadow-soft transition hover:-translate-y-1 hover:border-gold/50 sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center">
+    <article className="product-card interactive-card grid gap-8 rounded-2xl border border-line bg-white p-7 shadow-soft transition sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center">
       <div>
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <p className="text-sm font-semibold text-gold">{product.category}</p>
@@ -168,7 +169,7 @@ function ProductCard({ product }: { product: (typeof products)[number] }) {
       </div>
       {product.href && product.ctaLabel ? (
         <a
-          className="inline-flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-ink"
+          className="cta-shine inline-flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-ink"
           href={product.href}
           rel="noopener noreferrer"
           target="_blank"
@@ -183,11 +184,11 @@ function ProductCard({ product }: { product: (typeof products)[number] }) {
 function PurchaseButton({ href, variant, children }: { href: string; variant: "primary" | "secondary"; children: React.ReactNode }) {
   const className =
     variant === "primary"
-      ? "bg-navy text-white shadow-soft hover:-translate-y-0.5 hover:bg-ink"
-      : "border border-navy/20 bg-white text-navy hover:-translate-y-0.5 hover:border-navy hover:bg-mist";
+      ? "bg-navy text-white shadow-soft hover:bg-ink"
+      : "border border-navy/20 bg-white text-navy hover:border-navy hover:bg-mist";
 
   return (
-    <a className={`inline-flex min-h-11 items-center justify-center rounded-lg px-4 py-3 text-sm font-semibold transition ${className}`} href={href}>
+    <a className={`cta-shine inline-flex min-h-11 items-center justify-center rounded-lg px-4 py-3 text-sm font-semibold transition ${className}`} href={href}>
       {children}
     </a>
   );
@@ -265,7 +266,9 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-16 sm:px-8 lg:grid-cols-[1fr_0.92fr] lg:pb-28 lg:pt-24">
+      <section className="hero-atmosphere relative overflow-hidden">
+        <div className="hero-arc-lines" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-16 sm:px-8 lg:grid-cols-[1fr_0.92fr] lg:pb-28 lg:pt-24">
         <div>
           <p className="mb-5 inline-flex rounded-full border border-gold/30 bg-sand/70 px-4 py-2 text-sm font-semibold text-navy">
             Small business app development
@@ -279,7 +282,7 @@ export default function Home() {
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
-              className="inline-flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-ink"
+              className="cta-shine inline-flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-ink"
               href="https://timecard.arcnest.jp"
               rel="noopener noreferrer"
               target="_blank"
@@ -287,7 +290,7 @@ export default function Home() {
               勤怠管理アプリを見る
             </a>
             <a
-              className="inline-flex items-center justify-center rounded-lg border border-navy/20 bg-white px-6 py-3 text-sm font-semibold text-navy transition hover:border-navy hover:bg-mist"
+              className="cta-shine inline-flex items-center justify-center rounded-lg border border-navy/20 bg-white px-6 py-3 text-sm font-semibold text-navy transition hover:border-navy hover:bg-mist"
               href="#contact"
             >
               お問い合わせ
@@ -297,9 +300,11 @@ export default function Home() {
         <div className="rounded-[28px] border border-line bg-white p-4 shadow-soft">
           <ArcNestIllustration />
         </div>
+        </div>
       </section>
 
-      <section className="bg-white py-20" id="services">
+      <section className="section-flow bg-white py-20" id="services">
+        <Reveal>
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading title="提供サービス" />
           <div className="grid gap-5 md:grid-cols-3">
@@ -312,9 +317,11 @@ export default function Home() {
             ))}
           </div>
         </div>
+        </Reveal>
       </section>
 
-      <section className="bg-mist py-20" id="products">
+      <section className="section-flow bg-mist py-20" id="products">
+        <Reveal>
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading title="プロダクト" />
           <div className="grid gap-6">
@@ -323,9 +330,11 @@ export default function Home() {
             ))}
           </div>
         </div>
+        </Reveal>
       </section>
 
-      <section className="bg-white py-20" id="templates">
+      <section className="section-flow bg-white py-20" id="templates">
+        <Reveal>
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading eyebrow="Google Sheets + GAS" title="Googleスプレッドシート用コードテンプレート" />
           <p className="-mt-5 mb-10 max-w-3xl leading-8 text-slate-600">
@@ -339,9 +348,11 @@ export default function Home() {
           </div>
           <PurchaseFlow />
         </div>
+        </Reveal>
       </section>
 
-      <section className="bg-white py-20" id="side-project">
+      <section className="section-flow bg-white py-20" id="side-project">
+        <Reveal>
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading eyebrow="Development Brand" title="開発ブランド" />
           <article className="rounded-2xl border border-line bg-white p-7 shadow-soft sm:p-9">
@@ -355,9 +366,11 @@ export default function Home() {
             </p>
           </article>
         </div>
+        </Reveal>
       </section>
 
-      <section className="bg-mist py-20" id="about">
+      <section className="section-flow bg-mist py-20" id="about">
+        <Reveal>
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading title="ArcNestについて" />
           <p className="max-w-4xl text-lg leading-9 text-slate-700">
@@ -365,9 +378,11 @@ export default function Home() {
             大きすぎるシステムではなく、必要な機能をわかりやすくまとめた、使い続けやすいアプリを目指しています。
           </p>
         </div>
+        </Reveal>
       </section>
 
-      <section className="bg-white py-20" id="contact">
+      <section className="section-flow bg-white py-20" id="contact">
+        <Reveal>
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <div className="rounded-2xl bg-ink p-8 text-white shadow-soft sm:p-10">
             <div className="mb-10">
@@ -378,13 +393,13 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-ink transition hover:bg-sand"
+                className="cta-shine inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-ink transition hover:bg-sand"
                 href="#"
               >
                 Xで相談する
               </a>
               <a
-                className="inline-flex items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                className="cta-shine inline-flex items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                 href="mailto:support@arcnest.jp"
               >
                 メールで相談する
@@ -392,6 +407,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        </Reveal>
       </section>
 
       <footer className="border-t border-line bg-white">
