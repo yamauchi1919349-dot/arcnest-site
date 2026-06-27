@@ -14,9 +14,9 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(197, 161, 91, 0.12), transparent 30rem),
-    radial-gradient(circle at 85% 22%, rgba(18, 55, 102, 0.08), transparent 24rem),
-    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    radial-gradient(circle at 12% 8%, rgba(197, 161, 91, 0.1), transparent 30rem),
+    radial-gradient(circle at 85% 22%, rgba(18, 55, 102, 0.1), transparent 24rem),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fc 52%, #ffffff 100%);
   color: #0b1f3a;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -25,33 +25,57 @@ body {
   box-sizing: border-box;
 }
 
+.site-header {
+  background: rgba(6, 24, 50, 0.94);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
 .hero-atmosphere {
   background:
-    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.96), transparent 20rem),
-    radial-gradient(circle at 78% 24%, rgba(96, 145, 205, 0.18), transparent 24rem),
-    radial-gradient(circle at 50% 92%, rgba(197, 161, 91, 0.13), transparent 26rem),
-    linear-gradient(145deg, #f8fbff 0%, #edf4fb 44%, #ffffff 100%);
+    radial-gradient(circle at 76% 26%, rgba(255, 226, 173, 0.28), transparent 17rem),
+    radial-gradient(circle at 86% 8%, rgba(255, 255, 255, 0.18), transparent 18rem),
+    radial-gradient(circle at 22% 18%, rgba(44, 89, 145, 0.34), transparent 22rem),
+    linear-gradient(135deg, #061832 0%, #0a274f 50%, #071d38 100%);
   isolation: isolate;
 }
 
 .hero-atmosphere::before {
-  animation: hero-light-drift 18s ease-in-out infinite alternate;
+  animation: hero-light-drift 20s ease-in-out infinite alternate;
   background:
-    radial-gradient(circle, rgba(197, 161, 91, 0.18), transparent 18rem),
-    radial-gradient(circle, rgba(18, 55, 102, 0.12), transparent 22rem);
+    radial-gradient(circle at 72% 26%, rgba(197, 161, 91, 0.25), transparent 18rem),
+    radial-gradient(circle at 26% 32%, rgba(96, 145, 205, 0.18), transparent 24rem),
+    linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.06) 48%, transparent 74%);
   content: "";
-  inset: -18% -12%;
-  opacity: 0.85;
+  inset: -22% -16%;
+  opacity: 0.9;
   pointer-events: none;
   position: absolute;
   transform: translate3d(-1.5%, 0, 0);
   z-index: -1;
 }
 
+.hero-atmosphere::after {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.5) 0 1px, transparent 1px),
+    radial-gradient(circle, rgba(197, 161, 91, 0.55) 0 1px, transparent 1px);
+  background-position:
+    64% 22%,
+    76% 33%;
+  background-size:
+    6.25rem 6.25rem,
+    10rem 10rem;
+  content: "";
+  inset: 0;
+  opacity: 0.32;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
 .hero-arc-lines {
-  inset: auto -8% -18% -8%;
-  min-height: 22rem;
-  opacity: 0.3;
+  inset: 8% -16% -18% 18%;
+  min-height: 34rem;
+  opacity: 0.7;
   pointer-events: none;
   position: absolute;
 }
@@ -67,8 +91,33 @@ body {
 }
 
 .hero-arc-lines::after {
-  border-top-color: rgba(197, 161, 91, 0.18);
-  inset: 3rem 10% -2rem;
+  border-top-color: rgba(197, 161, 91, 0.34);
+  inset: 4rem 8% -3rem;
+}
+
+.hero-showcase {
+  box-shadow:
+    0 34px 80px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  position: relative;
+  transform: perspective(1000px) rotateY(-3deg) rotateX(1.5deg);
+}
+
+.hero-showcase::before {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.58), transparent 34%, rgba(197, 161, 91, 0.12));
+  content: "";
+  inset: 0;
+  opacity: 0.7;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.hero-showcase svg {
+  filter: drop-shadow(0 18px 28px rgba(11, 31, 58, 0.16));
+  position: relative;
+  z-index: 0;
 }
 
 .section-flow {
@@ -77,7 +126,9 @@ body {
 }
 
 .section-flow::before {
-  background: linear-gradient(110deg, transparent 0%, rgba(18, 55, 102, 0.045) 48%, transparent 100%);
+  background:
+    radial-gradient(circle at 28% 0%, rgba(18, 55, 102, 0.06), transparent 20rem),
+    linear-gradient(110deg, transparent 0%, rgba(18, 55, 102, 0.045) 48%, transparent 100%);
   border-radius: 0 0 50% 50%;
   content: "";
   height: 5rem;
@@ -86,6 +137,30 @@ body {
   position: absolute;
   right: -8%;
   top: -3.5rem;
+}
+
+.section-flow--white {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(197, 161, 91, 0.05), transparent 24rem),
+    #ffffff;
+}
+
+.product-stage,
+.template-stage {
+  background:
+    radial-gradient(circle at 4% 2%, rgba(18, 55, 102, 0.08), transparent 24rem),
+    radial-gradient(circle at 90% 12%, rgba(197, 161, 91, 0.08), transparent 22rem),
+    linear-gradient(180deg, #f7faff 0%, #ffffff 68%, #f7f9fc 100%);
+}
+
+.section-heading {
+  max-width: 48rem;
+}
+
+.section-kicker,
+.product-card p:first-child {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .section-flow > .reveal-on-scroll {
@@ -120,14 +195,29 @@ body {
 
 .interactive-card:hover {
   border-color: rgba(48, 92, 145, 0.28);
-  box-shadow: 0 24px 58px rgba(11, 31, 58, 0.14);
+  box-shadow: 0 28px 68px rgba(11, 31, 58, 0.16);
   transform: translate3d(0, -5px, 0);
 }
 
 .product-card {
   background:
-    radial-gradient(circle at 92% 12%, rgba(48, 92, 145, 0.11), transparent 14rem),
+    radial-gradient(circle at 92% 12%, rgba(48, 92, 145, 0.13), transparent 14rem),
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), #ffffff);
+  box-shadow:
+    0 22px 58px rgba(11, 31, 58, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  min-height: 28rem;
+  overflow: hidden;
+}
+
+.product-card--featured {
+  align-content: space-between;
+}
+
+@media (min-width: 1024px) {
+  .product-card--featured {
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.72fr);
+  }
 }
 
 .product-card::after {
@@ -143,6 +233,182 @@ body {
 
 .product-card:hover::after {
   opacity: 1;
+}
+
+.product-card--featured {
+  background:
+    radial-gradient(circle at 18% 80%, rgba(18, 55, 102, 0.12), transparent 18rem),
+    radial-gradient(circle at 96% 0%, rgba(197, 161, 91, 0.18), transparent 15rem),
+    linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.product-card--featured::before {
+  background: linear-gradient(180deg, #c5a15b, rgba(197, 161, 91, 0));
+  content: "";
+  inset: 0 auto 0 0;
+  position: absolute;
+  width: 4px;
+}
+
+.product-card--featured .product-card__visual {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  min-height: 18rem;
+}
+
+.product-card--featured .product-cta {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+}
+
+.product-card--preview {
+  background:
+    radial-gradient(circle at 88% 16%, rgba(197, 161, 91, 0.12), transparent 12rem),
+    linear-gradient(145deg, #ffffff 0%, #fbfcff 100%);
+}
+
+.product-card--preview .product-card__visual {
+  min-height: 8.5rem;
+  opacity: 0.8;
+}
+
+.premium-pill {
+  box-shadow: inset 0 0 0 1px rgba(197, 161, 91, 0.24);
+}
+
+.product-card__visual {
+  align-self: end;
+  border-radius: 1.25rem;
+  min-height: 12rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card__visual::before {
+  background:
+    linear-gradient(90deg, rgba(18, 55, 102, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(18, 55, 102, 0.08) 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
+  content: "";
+  inset: 16% 0 0;
+  opacity: 0.36;
+  position: absolute;
+}
+
+.product-card__screen {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 251, 255, 0.9)),
+    repeating-linear-gradient(180deg, rgba(18, 55, 102, 0.08) 0 1px, transparent 1px 18px);
+  border: 1px solid rgba(18, 55, 102, 0.12);
+  border-radius: 1rem;
+  box-shadow: 0 22px 42px rgba(11, 31, 58, 0.14);
+  position: absolute;
+}
+
+.product-card__screen--large {
+  height: 8.5rem;
+  right: 0.75rem;
+  top: 1rem;
+  width: min(16rem, 74%);
+}
+
+.product-card__screen--small {
+  bottom: 0.75rem;
+  height: 8rem;
+  left: 0.75rem;
+  width: min(6.5rem, 36%);
+}
+
+.product-card__signal {
+  background: radial-gradient(circle, #c5a15b 0 0.32rem, rgba(197, 161, 91, 0.18) 0.34rem 1rem, transparent 1.05rem);
+  border-radius: 999px;
+  height: 5rem;
+  position: absolute;
+  right: 22%;
+  top: 32%;
+  width: 5rem;
+}
+
+.product-cta {
+  align-self: end;
+  min-width: 10rem;
+}
+
+.service-card,
+.brand-card,
+.template-card {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(18, 55, 102, 0.06), transparent 14rem),
+    linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+}
+
+.template-card {
+  min-height: 100%;
+}
+
+.template-icon {
+  align-items: center;
+  background: linear-gradient(145deg, rgba(18, 55, 102, 0.08), rgba(197, 161, 91, 0.12));
+  border: 1px solid rgba(18, 55, 102, 0.08);
+  border-radius: 1rem;
+  display: flex;
+  height: 3.5rem;
+  justify-content: center;
+  width: 3.5rem;
+}
+
+.template-icon span,
+.template-icon span::before,
+.template-icon span::after {
+  background: #123766;
+  border-radius: 0.18rem;
+  content: "";
+  display: block;
+  height: 1.5rem;
+  opacity: 0.82;
+  position: relative;
+  width: 0.38rem;
+}
+
+.template-icon span::before,
+.template-icon span::after {
+  bottom: 0;
+  position: absolute;
+}
+
+.template-icon span::before {
+  height: 1rem;
+  left: -0.72rem;
+}
+
+.template-icon span::after {
+  height: 2rem;
+  right: -0.72rem;
+}
+
+.purchase-flow {
+  background:
+    linear-gradient(90deg, rgba(18, 55, 102, 0.06), rgba(255, 255, 255, 0.94)),
+    #ffffff;
+}
+
+.purchase-step {
+  position: relative;
+}
+
+.purchase-step::after {
+  background: linear-gradient(90deg, rgba(18, 55, 102, 0.24), transparent);
+  content: "";
+  height: 1px;
+  left: 3.75rem;
+  position: absolute;
+  right: -1rem;
+  top: 2rem;
+}
+
+.purchase-step:last-child::after {
+  display: none;
 }
 
 .cta-shine {
@@ -174,6 +440,88 @@ body {
   transform: translateX(120%) skewX(-16deg);
 }
 
+.cta-shine--gold::after {
+  background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.42) 45%, transparent 70%);
+}
+
+.contact-stage {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(18, 55, 102, 0.08), transparent 24rem),
+    #ffffff;
+}
+
+.contact-panel {
+  background:
+    radial-gradient(circle at 86% 26%, rgba(197, 161, 91, 0.2), transparent 18rem),
+    radial-gradient(circle at 100% 100%, rgba(96, 145, 205, 0.18), transparent 18rem),
+    linear-gradient(135deg, #061832 0%, #0b2344 58%, #07172d 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.contact-panel::before {
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.contact-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-orbit {
+  bottom: -5rem;
+  height: 22rem;
+  pointer-events: none;
+  position: absolute;
+  right: -4rem;
+  width: 22rem;
+  z-index: 0;
+}
+
+.contact-orbit::before,
+.contact-orbit::after {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.contact-orbit::after {
+  border-color: rgba(197, 161, 91, 0.22);
+  inset: 3rem;
+}
+
+.contact-orbit span {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  box-shadow: 0 0 30px rgba(197, 161, 91, 0.18);
+  display: block;
+  height: 3rem;
+  position: absolute;
+  width: 3rem;
+}
+
+.contact-orbit span:nth-child(1) {
+  left: 2rem;
+  top: 4rem;
+}
+
+.contact-orbit span:nth-child(2) {
+  right: 5rem;
+  top: 1.25rem;
+}
+
+.contact-orbit span:nth-child(3) {
+  bottom: 5rem;
+  left: 7rem;
+}
+
 @keyframes hero-light-drift {
   0% {
     transform: translate3d(-1.5%, 0, 0) scale(1);
@@ -201,5 +549,29 @@ body {
   .reveal-on-scroll {
     opacity: 1;
     transform: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-showcase {
+    transform: none;
+  }
+
+  .product-card {
+    min-height: auto;
+  }
+
+  .product-card--featured .product-card__visual,
+  .product-card--featured .product-cta {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .product-card__visual {
+    min-height: 10rem;
+  }
+
+  .purchase-step::after {
+    display: none;
   }
 }

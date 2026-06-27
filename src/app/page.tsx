@@ -135,20 +135,26 @@ function ArcNestIllustration() {
 
 function SectionHeading({ eyebrow, title }: { eyebrow?: string; title: string }) {
   return (
-    <div className="mb-10">
-      {eyebrow ? <p className="mb-3 text-sm font-semibold text-gold">{eyebrow}</p> : null}
+    <div className="section-heading mb-10">
+      {eyebrow ? <p className="section-kicker mb-3 text-sm font-semibold text-gold">{eyebrow}</p> : null}
       <h2 className="text-3xl font-bold tracking-normal text-ink sm:text-4xl">{title}</h2>
     </div>
   );
 }
 
 function ProductCard({ product }: { product: (typeof products)[number] }) {
+  const isFeatured = Boolean(product.href);
+
   return (
-    <article className="product-card interactive-card grid gap-8 rounded-2xl border border-line bg-white p-7 shadow-soft transition sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center">
+    <article
+      className={`product-card interactive-card grid gap-8 rounded-2xl border border-line bg-white p-7 shadow-soft transition sm:p-9 lg:items-center ${
+        isFeatured ? "product-card--featured lg:col-span-7" : "product-card--preview lg:col-span-5"
+      }`}
+    >
       <div>
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <p className="text-sm font-semibold text-gold">{product.category}</p>
-          {product.status ? <span className="rounded-full bg-sand px-3 py-1 text-xs font-bold text-navy">{product.status}</span> : null}
+          {product.status ? <span className="premium-pill rounded-full bg-sand px-3 py-1 text-xs font-bold text-navy">{product.status}</span> : null}
         </div>
         <h3 className="text-2xl font-bold text-ink">{product.title}</h3>
         <div className="mt-4 max-w-3xl space-y-3 leading-8 text-slate-600">
@@ -166,17 +172,22 @@ function ProductCard({ product }: { product: (typeof products)[number] }) {
             ))}
           </ul>
         ) : null}
+        {product.href && product.ctaLabel ? (
+          <a
+            className="cta-shine product-cta mt-7 inline-flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-ink"
+            href={product.href}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {product.ctaLabel}
+          </a>
+        ) : null}
       </div>
-      {product.href && product.ctaLabel ? (
-        <a
-          className="cta-shine inline-flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-ink"
-          href={product.href}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          {product.ctaLabel}
-        </a>
-      ) : null}
+      <div className="product-card__visual" aria-hidden="true">
+        <span className="product-card__screen product-card__screen--large" />
+        <span className="product-card__screen product-card__screen--small" />
+        <span className="product-card__signal" />
+      </div>
     </article>
   );
 }
@@ -196,8 +207,13 @@ function PurchaseButton({ href, variant, children }: { href: string; variant: "p
 
 function TemplateCard({ template }: { template: (typeof templates)[number] }) {
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-line bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:border-gold/50 sm:p-7">
-      <div className="mb-6 h-1.5 w-12 rounded-full bg-gold" />
+    <article className="template-card interactive-card flex h-full flex-col rounded-2xl border border-line bg-white p-6 shadow-soft transition sm:p-7">
+      <div className="template-card__top mb-6 flex items-center justify-between gap-4">
+        <div className="template-icon" aria-hidden="true">
+          <span />
+        </div>
+        <div className="h-1.5 w-12 rounded-full bg-gold" />
+      </div>
       <h3 className="text-xl font-bold text-ink">{template.name}</h3>
       <p className="mt-4 flex-1 leading-7 text-slate-600">{template.description}</p>
       <div className="mt-7 space-y-4 border-t border-line pt-5">
@@ -224,11 +240,11 @@ function TemplateCard({ template }: { template: (typeof templates)[number] }) {
 
 function PurchaseFlow() {
   return (
-    <div className="mt-12 rounded-2xl border border-line bg-white p-6 shadow-soft sm:p-8">
+    <div className="purchase-flow mt-12 rounded-2xl border border-line bg-white p-6 shadow-soft sm:p-8">
       <h3 className="text-2xl font-bold text-ink">購入方法</h3>
       <div className="mt-7 grid gap-4 md:grid-cols-5">
         {purchaseSteps.map((step, index) => (
-          <div className="rounded-xl border border-line bg-mist p-4" key={step}>
+          <div className="purchase-step rounded-xl border border-line bg-mist p-4" key={step}>
             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">
               {index + 1}
             </div>
@@ -242,10 +258,10 @@ function PurchaseFlow() {
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <header className="sticky top-0 z-20 border-b border-line/70 bg-white/90 backdrop-blur">
+    <main className="site-shell min-h-screen">
+      <header className="site-header sticky top-0 z-20 border-b border-white/10 text-white backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-4 sm:px-8">
-          <a className="inline-flex items-center gap-3 text-xl font-bold text-ink" href="#">
+          <a className="inline-flex items-center gap-3 text-xl font-bold text-white" href="#">
             <Image
               alt="ArcNest Logo"
               className="h-9 w-9 shrink-0 object-contain"
@@ -256,9 +272,9 @@ export default function Home() {
             />
             ArcNest
           </a>
-          <nav aria-label="主要ナビゲーション" className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-slate-600">
+          <nav aria-label="主要ナビゲーション" className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-slate-200">
             {navItems.map((item) => (
-              <a className="transition hover:text-navy" href={item.href} key={item.href}>
+              <a className="transition hover:text-white" href={item.href} key={item.href}>
                 {item.label}
               </a>
             ))}
@@ -268,21 +284,21 @@ export default function Home() {
 
       <section className="hero-atmosphere relative overflow-hidden">
         <div className="hero-arc-lines" aria-hidden="true" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-16 sm:px-8 lg:grid-cols-[1fr_0.92fr] lg:pb-28 lg:pt-24">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pb-24 pt-16 sm:px-8 lg:grid-cols-[1fr_0.92fr] lg:pb-32 lg:pt-24">
         <div>
-          <p className="mb-5 inline-flex rounded-full border border-gold/30 bg-sand/70 px-4 py-2 text-sm font-semibold text-navy">
+          <p className="mb-5 inline-flex rounded-full border border-gold/30 bg-white/10 px-4 py-2 text-sm font-semibold text-sand shadow-soft backdrop-blur">
             Small business app development
           </p>
-          <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-normal text-ink sm:text-5xl lg:text-6xl">
+          <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
             小さな事業のための、ちょうどいい業務アプリ開発。
           </h1>
-          <p className="mt-7 max-w-2xl text-base leading-8 text-slate-700 sm:text-lg">
+          <p className="mt-7 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
             ArcNestは、勤怠管理・業務管理・予約管理など、現場で使いやすい小規模システムを開発しています。
             必要な機能だけを、使いやすく。小さな事業の成長を支えるアプリをつくります。
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
-              className="cta-shine inline-flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-ink"
+              className="cta-shine cta-shine--gold inline-flex items-center justify-center rounded-lg bg-gold px-7 py-4 text-sm font-bold text-ink shadow-soft transition hover:bg-sand"
               href="https://timecard.arcnest.jp"
               rel="noopener noreferrer"
               target="_blank"
@@ -290,26 +306,26 @@ export default function Home() {
               勤怠管理アプリを見る
             </a>
             <a
-              className="cta-shine inline-flex items-center justify-center rounded-lg border border-navy/20 bg-white px-6 py-3 text-sm font-semibold text-navy transition hover:border-navy hover:bg-mist"
+              className="cta-shine inline-flex items-center justify-center rounded-lg border border-white/25 bg-white/10 px-7 py-4 text-sm font-semibold text-white backdrop-blur transition hover:border-white/50 hover:bg-white/15"
               href="#contact"
             >
               お問い合わせ
             </a>
           </div>
         </div>
-        <div className="rounded-[28px] border border-line bg-white p-4 shadow-soft">
+        <div className="hero-showcase rounded-[28px] border border-white/15 bg-white p-4 shadow-soft">
           <ArcNestIllustration />
         </div>
         </div>
       </section>
 
-      <section className="section-flow bg-white py-20" id="services">
+      <section className="section-flow section-flow--white bg-white py-24" id="services">
         <Reveal>
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading title="提供サービス" />
           <div className="grid gap-5 md:grid-cols-3">
             {services.map((service) => (
-              <article className="rounded-2xl border border-line bg-white p-7 shadow-soft transition hover:-translate-y-1" key={service.title}>
+              <article className="service-card interactive-card rounded-2xl border border-line bg-white p-7 shadow-soft transition" key={service.title}>
                 <div className="mb-6 h-1.5 w-12 rounded-full bg-gold" />
                 <h3 className="text-xl font-bold text-ink">{service.title}</h3>
                 <p className="mt-4 leading-7 text-slate-600">{service.body}</p>
@@ -320,11 +336,11 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="section-flow bg-mist py-20" id="products">
+      <section className="section-flow product-stage bg-mist py-24" id="products">
         <Reveal>
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading title="プロダクト" />
-          <div className="grid gap-6">
+          <div className="grid gap-6 lg:grid-cols-12">
             {products.map((product) => (
               <ProductCard key={product.title} product={product} />
             ))}
@@ -333,7 +349,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="section-flow bg-white py-20" id="templates">
+      <section className="section-flow template-stage bg-white py-24" id="templates">
         <Reveal>
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading eyebrow="Google Sheets + GAS" title="Googleスプレッドシート用コードテンプレート" />
@@ -351,11 +367,11 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="section-flow bg-white py-20" id="side-project">
+      <section className="section-flow section-flow--white bg-white py-24" id="side-project">
         <Reveal>
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading eyebrow="Development Brand" title="開発ブランド" />
-          <article className="rounded-2xl border border-line bg-white p-7 shadow-soft sm:p-9">
+          <article className="brand-card interactive-card rounded-2xl border border-line bg-white p-7 shadow-soft sm:p-9">
             <div className="flex flex-wrap items-center gap-4">
               <h3 className="text-2xl font-bold text-ink">不便シリーズ</h3>
               <span className="rounded-full bg-sand px-3 py-1 text-xs font-bold text-navy">開発中</span>
@@ -369,7 +385,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="section-flow bg-mist py-20" id="about">
+      <section className="section-flow bg-mist py-24" id="about">
         <Reveal>
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading title="ArcNestについて" />
@@ -381,10 +397,15 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="section-flow bg-white py-20" id="contact">
+      <section className="section-flow contact-stage bg-white py-24" id="contact">
         <Reveal>
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <div className="rounded-2xl bg-ink p-8 text-white shadow-soft sm:p-10">
+          <div className="contact-panel rounded-2xl bg-ink p-8 text-white shadow-soft sm:p-10">
+            <div className="contact-orbit" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
             <div className="mb-10">
               <h2 className="text-3xl font-bold tracking-normal text-white sm:text-4xl">お問い合わせ</h2>
             </div>
@@ -393,7 +414,7 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                className="cta-shine inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-ink transition hover:bg-sand"
+                className="cta-shine cta-shine--gold inline-flex items-center justify-center rounded-lg bg-gold px-7 py-4 text-sm font-bold text-ink transition hover:bg-sand"
                 href="#"
               >
                 Xで相談する
