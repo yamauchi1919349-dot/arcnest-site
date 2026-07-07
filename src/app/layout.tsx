@@ -3,10 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arcnest.jp"),
-  title: "ArcNest | 小さな事業のための業務アプリ開発",
+  title: "ArcNest | Small systems. Better fields.",
   applicationName: "ArcNest",
   description:
-    "ArcNestは、勤怠管理・業務管理・予約管理など、小規模事業者向けの使いやすい業務アプリを開発するブランドです。",
+    "ArcNestは、現場から生まれる小さな仕組みをつくるプロダクトスタジオです。勤怠管理、記録管理、タスク整理など、毎日の仕事が少し楽になる道具を作っています。",
   manifest: "/manifest.json",
   icons: {
     icon: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b1f3a"
+  themeColor: "#ffffff"
 };
 
 export default function RootLayout({
