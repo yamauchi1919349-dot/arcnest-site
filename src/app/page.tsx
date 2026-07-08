@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Reveal from "./Reveal";
 
 const navItems = [
@@ -13,21 +14,24 @@ const products = [
     title: "Timecard",
     subtitle: "Simple attendance management.",
     lines: ["毎日の打刻から、", "スタッフ管理、月次集計まで。", "現場で迷わず使える勤怠管理。"],
-    href: "https://timecard.arcnest.jp"
+    href: "https://timecard.arcnest.jp",
+    image: "/images/products/timecard.png"
   },
   {
     number: "02",
     title: "Gibier Trace",
     subtitle: "Record life correctly.",
     lines: ["命の記録を、", "未来へつなぐ。", "個体管理・衛生管理・トレーサビリティを", "ひとつの流れへ。"],
-    href: "#contact"
+    href: "#contact",
+    image: "/images/products/gibier-trace.png"
   },
   {
     number: "03",
     title: "TaskOrbit",
     subtitle: "Find your next action.",
     lines: ["時間に追われるのではなく、", "今やるべきことを整える。", "新しい形のタスク管理。"],
-    href: "#contact"
+    href: "#contact",
+    image: "/images/products/taskorbit.png"
   }
 ];
 
@@ -153,7 +157,13 @@ export default function Home() {
                     </span>
                   </span>
                   <span className="product-space" aria-hidden="true">
-                    <span />
+                    <Image
+                      alt=""
+                      className="product-image"
+                      fill
+                      sizes="(max-width: 900px) calc(100vw - 6rem), 28vw"
+                      src={product.image}
+                    />
                   </span>
                 </a>
               ))}
