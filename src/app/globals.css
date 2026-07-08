@@ -146,11 +146,33 @@ a {
   margin: 0;
 }
 
+.hero-note-panel {
+  align-items: end;
+  display: grid;
+  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(12rem, 23rem) auto;
+  justify-content: end;
+  margin: clamp(4rem, 8vw, 8rem) 0 0 auto;
+  max-width: min(62rem, 100%);
+}
+
+.hero-note-image {
+  align-self: end;
+  aspect-ratio: 4 / 5;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.34)),
+    url("/images/arcnest-forest-mist.jpg") center / cover;
+  border-radius: clamp(1.25rem, 2vw, 2rem);
+  box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.08);
+  min-height: 18rem;
+  opacity: 0.82;
+  overflow: hidden;
+}
+
 .hero-note {
   color: var(--muted);
   font-size: clamp(0.95rem, 1.4vw, 1.2rem);
   line-height: 2;
-  margin: clamp(4rem, 8vw, 8rem) 0 0 auto;
   max-width: min(30rem, 100%);
   min-height: clamp(16rem, 32vw, 26rem);
 }
@@ -436,8 +458,21 @@ a {
     gap: 2.5rem;
   }
 
-  .hero-note {
+  .hero-note-panel {
+    gap: clamp(2rem, 8vw, 4rem);
+    grid-template-columns: 1fr;
+    justify-content: start;
     margin-left: 0;
+    max-width: min(32rem, 100%);
+  }
+
+  .hero-note-image {
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .hero-note {
     min-height: clamp(15rem, 58vw, 24rem);
   }
 

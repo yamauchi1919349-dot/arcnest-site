@@ -74,17 +74,20 @@ export default function Home() {
             </Reveal>
           </div>
 
-          <Reveal className="hero-note reveal-delay-two">
-            <p>
-              余計なものを増やすのではなく、
-              <br />
-              毎日の仕事が少し楽になる道具を。
-              <br />
-              <br />
-              ArcNestは、
-              <br />
-              現場から生まれるプロダクトスタジオです。
-            </p>
+          <Reveal className="hero-note-panel reveal-delay-two">
+            <div className="hero-note-image" aria-hidden="true" />
+            <div className="hero-note">
+              <p>
+                余計なものを増やすのではなく、
+                <br />
+                毎日の仕事が少し楽になる道具を。
+                <br />
+                <br />
+                ArcNestは、
+                <br />
+                現場から生まれるプロダクトスタジオです。
+              </p>
+            </div>
           </Reveal>
 
           <span className="scroll-cue">Scroll to explore</span>
