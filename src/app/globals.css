@@ -151,11 +151,15 @@ a {
   font-size: clamp(0.95rem, 1.4vw, 1.2rem);
   line-height: 2;
   margin: clamp(4rem, 8vw, 8rem) 0 0 auto;
-  max-width: 30rem;
+  max-width: min(30rem, 100%);
+  min-height: clamp(16rem, 32vw, 26rem);
 }
 
 .hero-note p {
   margin: 0;
+  max-height: clamp(16rem, 36vw, 28rem);
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
 }
 
 .scroll-cue {
@@ -217,6 +221,13 @@ a {
   line-height: 2.2;
   margin: 0;
   max-width: 46rem;
+}
+
+.body-poem {
+  margin-top: clamp(3rem, 5vw, 5rem);
+  max-height: clamp(18rem, 40vw, 30rem);
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
 }
 
 .products-list {
@@ -427,6 +438,15 @@ a {
 
   .hero-note {
     margin-left: 0;
+    min-height: clamp(15rem, 58vw, 24rem);
+  }
+
+  .hero-note p {
+    max-height: clamp(15rem, 62vw, 24rem);
+  }
+
+  .body-poem {
+    max-height: clamp(17rem, 70vw, 26rem);
   }
 
   .product-row {
