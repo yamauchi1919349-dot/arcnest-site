@@ -281,12 +281,12 @@ a {
 @keyframes philosophy-text-drift {
   0%,
   8% {
-    transform: translateX(0);
+    transform: translateX(calc(-100% + 100vw - 2.5rem));
   }
 
   92%,
   100% {
-    transform: translateX(calc(-100% + 100vw - 2.5rem));
+    transform: translateX(0);
   }
 }
 
@@ -595,7 +595,7 @@ a {
   }
 
   .philosophy-section .hero-note p {
-    animation: philosophy-text-drift 150s linear infinite;
+    animation: philosophy-text-drift 110s linear infinite;
     height: 100%;
     max-height: 100%;
     max-width: none;
