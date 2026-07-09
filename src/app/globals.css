@@ -260,19 +260,20 @@ a {
 .philosophy-section .hero-note {
   font-size: clamp(1.02rem, 1.35vw, 1.22rem);
   line-height: 2.25;
-  max-width: min(58rem, 100%);
-  min-height: clamp(35rem, 62vw, 48rem);
-  overflow-x: hidden;
-  overflow-y: visible;
+  height: auto;
+  max-width: none;
+  min-height: 0;
+  overflow: visible;
   padding-bottom: 0;
   width: 100%;
 }
 
 .philosophy-section .hero-note p {
-  max-height: clamp(35rem, 66vw, 50rem);
-  max-width: 100%;
+  height: auto;
+  max-height: none;
+  max-width: none;
   text-orientation: mixed;
-  width: 100%;
+  width: max-content;
   writing-mode: vertical-rl;
 }
 
@@ -573,14 +574,19 @@ a {
   .philosophy-section .hero-note {
     font-size: clamp(0.8rem, 3.5vw, 0.96rem);
     line-height: 2;
-    min-height: clamp(34rem, 92svh, 44rem);
-    overflow-x: hidden;
+    max-width: 100%;
+    min-height: 0;
+    overflow: visible;
   }
 
   .philosophy-section .hero-note p {
-    max-height: clamp(34rem, 94svh, 45rem);
+    max-height: none;
     max-width: 100%;
     width: 100%;
+  }
+
+  .philosophy-section .hero-note br {
+    display: none;
   }
 
   .body-poem {
