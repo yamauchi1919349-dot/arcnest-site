@@ -97,7 +97,7 @@ a {
 
 .hero-inner {
   display: grid;
-  grid-template-rows: auto 1fr auto auto;
+  grid-template-rows: auto 1fr auto;
   min-height: calc(100svh - clamp(10rem, 18vw, 15rem));
 }
 
@@ -114,15 +114,6 @@ a {
   overflow-wrap: anywhere;
 }
 
-.hero-copy {
-  align-self: center;
-  display: grid;
-  gap: clamp(1.5rem, 4vw, 4rem);
-  grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.85fr);
-  margin-top: clamp(4rem, 8vw, 9rem);
-}
-
-.hero-copy h1,
 .section-body h2,
 .products-list h2,
 .contact-section h2 {
@@ -133,26 +124,14 @@ a {
   margin: 0;
 }
 
-.hero-copy h1 {
-  font-size: clamp(3rem, 8vw, 8.75rem);
-  line-height: 0.96;
-}
-
-.hero-jp {
-  align-self: end;
-  font-size: clamp(1.5rem, 3.2vw, 3.6rem);
-  font-weight: 400;
-  line-height: 1.35;
-  margin: 0;
-}
-
 .hero-note-panel {
   align-items: end;
+  align-self: center;
   display: grid;
   gap: clamp(2rem, 5vw, 5rem);
   grid-template-columns: minmax(12rem, 23rem) auto;
   justify-content: end;
-  margin: clamp(4rem, 8vw, 8rem) 0 0 auto;
+  margin: clamp(3rem, 7vw, 7rem) 0 0 auto;
   max-width: min(62rem, 100%);
 }
 
@@ -174,12 +153,12 @@ a {
   font-size: clamp(0.95rem, 1.4vw, 1.2rem);
   line-height: 2;
   max-width: min(30rem, 100%);
-  min-height: clamp(16rem, 32vw, 26rem);
+  min-height: clamp(20rem, 38vw, 32rem);
 }
 
 .hero-note p {
   margin: 0;
-  max-height: clamp(16rem, 36vw, 28rem);
+  max-height: clamp(20rem, 42vw, 34rem);
   text-orientation: mixed;
   writing-mode: vertical-rl;
 }
@@ -456,14 +435,9 @@ a {
     position: absolute;
   }
 
-  .hero-copy,
   .section-grid,
   .contact-inner {
     grid-template-columns: 1fr;
-  }
-
-  .hero-copy {
-    gap: 2.5rem;
   }
 
   .hero-note-panel {
@@ -481,11 +455,11 @@ a {
   }
 
   .hero-note {
-    min-height: clamp(15rem, 58vw, 24rem);
+    min-height: clamp(19rem, 76vw, 31rem);
   }
 
   .hero-note p {
-    max-height: clamp(15rem, 62vw, 24rem);
+    max-height: clamp(19rem, 82vw, 32rem);
   }
 
   .body-poem {

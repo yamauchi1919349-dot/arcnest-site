@@ -61,27 +61,15 @@ export default function Home() {
             <p className="hero-brand">ArcNest</p>
           </Reveal>
 
-          <div className="hero-copy">
-            <Reveal>
-              <h1>
-                Small systems.
-                <br />
-                Better fields.
-              </h1>
-            </Reveal>
-            <Reveal className="reveal-delay-one">
-              <p className="hero-jp">
-                現場を支える、
-                <br />
-                小さな仕組みをつくる。
-              </p>
-            </Reveal>
-          </div>
-
           <Reveal className="hero-note-panel reveal-delay-two">
             <div className="hero-note-image" aria-hidden="true" />
             <div className="hero-note">
               <p>
+                現場を支える、
+                <br />
+                小さな仕組みをつくる。
+                <br />
+                <br />
                 余計なものを増やすのではなく、
                 <br />
                 毎日の仕事が少し楽になる道具を。
