@@ -58,7 +58,29 @@ export default function Home() {
       <section className="hero-section" id="top">
         <div className="hero-inner">
           <Reveal className="hero-brand-wrap">
-            <p className="hero-brand">ArcNest</p>
+            <p className="hero-brand" aria-label="ArcNest">
+              <span className="brand-letter brand-letter--major brand-letter--a" aria-hidden="true">
+                A
+              </span>
+              <span className="brand-letter brand-letter--minor brand-letter--r" aria-hidden="true">
+                r
+              </span>
+              <span className="brand-letter brand-letter--minor brand-letter--c" aria-hidden="true">
+                c
+              </span>
+              <span className="brand-letter brand-letter--major brand-letter--n" aria-hidden="true">
+                N
+              </span>
+              <span className="brand-letter brand-letter--minor brand-letter--e" aria-hidden="true">
+                e
+              </span>
+              <span className="brand-letter brand-letter--minor brand-letter--s" aria-hidden="true">
+                s
+              </span>
+              <span className="brand-letter brand-letter--major brand-letter--t" aria-hidden="true">
+                t
+              </span>
+            </p>
           </Reveal>
 
           <Reveal className="hero-note-panel reveal-delay-two">

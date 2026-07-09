@@ -103,15 +103,75 @@ a {
 
 .hero-brand-wrap {
   align-self: start;
+  width: 100%;
 }
 
 .hero-brand {
-  font-size: clamp(4.5rem, 18vw, 18rem);
-  font-weight: 500;
-  line-height: 0.86;
+  display: block;
+  font-family: Georgia, "Times New Roman", "Noto Serif JP", serif;
+  height: clamp(24rem, 52vw, 43rem);
   margin: 0;
-  max-width: 100%;
-  overflow-wrap: anywhere;
+  max-width: min(100%, 82rem);
+  position: relative;
+  width: 100%;
+}
+
+.brand-letter {
+  display: block;
+  font-weight: 400;
+  line-height: 0.82;
+  position: absolute;
+  user-select: none;
+}
+
+.brand-letter--major {
+  color: var(--ink);
+  font-size: clamp(8.5rem, 15.5vw, 15rem);
+}
+
+.brand-letter--minor {
+  color: var(--muted);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans JP", sans-serif;
+  font-size: clamp(2.1rem, 3.8vw, 4.2rem);
+  font-weight: 300;
+}
+
+.brand-letter--a {
+  left: 0;
+  top: 0;
+}
+
+.brand-letter--r {
+  left: 28%;
+  top: 28%;
+}
+
+.brand-letter--c {
+  left: 39%;
+  top: 28%;
+}
+
+.brand-letter--n {
+  bottom: 0;
+  left: 48%;
+  transform: translateX(-50%);
+}
+
+.brand-letter--e {
+  left: 65%;
+  top: 59%;
+}
+
+.brand-letter--s {
+  left: 75%;
+  top: 59%;
+}
+
+.brand-letter--t {
+  right: 1%;
+  top: 34%;
 }
 
 .section-body h2,
@@ -492,7 +552,44 @@ a {
   }
 
   .hero-brand {
-    font-size: clamp(3.7rem, 22vw, 6rem);
+    height: clamp(16rem, 82vw, 23rem);
+  }
+
+  .brand-letter--major {
+    font-size: clamp(5.2rem, 27vw, 8.25rem);
+  }
+
+  .brand-letter--minor {
+    font-size: clamp(1.35rem, 8vw, 2.2rem);
+  }
+
+  .brand-letter--r {
+    left: 27%;
+    top: 29%;
+  }
+
+  .brand-letter--c {
+    left: 43%;
+    top: 29%;
+  }
+
+  .brand-letter--n {
+    left: 46%;
+  }
+
+  .brand-letter--e {
+    left: 62%;
+    top: 61%;
+  }
+
+  .brand-letter--s {
+    left: 78%;
+    top: 61%;
+  }
+
+  .brand-letter--t {
+    right: 0;
+    top: 36%;
   }
 
   .products-list h2 {
