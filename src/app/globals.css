@@ -192,7 +192,7 @@ a {
   grid-template-columns: minmax(12rem, 23rem) auto;
   justify-content: end;
   margin: clamp(3rem, 7vw, 7rem) 0 0 auto;
-  max-width: min(62rem, 100%);
+  max-width: min(82rem, 100%);
 }
 
 .hero-note-image {
@@ -210,16 +210,20 @@ a {
 
 .hero-note {
   color: var(--muted);
-  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
-  line-height: 2;
-  max-width: min(30rem, 100%);
-  min-height: clamp(20rem, 38vw, 32rem);
+  font-size: clamp(0.82rem, 1.05vw, 1rem);
+  line-height: 1.9;
+  max-width: min(48rem, 100%);
+  min-height: clamp(30rem, 52vw, 42rem);
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.5rem;
 }
 
 .hero-note p {
   margin: 0;
-  max-height: clamp(20rem, 42vw, 34rem);
+  max-height: clamp(30rem, 56vw, 44rem);
   text-orientation: mixed;
+  width: max-content;
   writing-mode: vertical-rl;
 }
 
@@ -505,7 +509,7 @@ a {
     grid-template-columns: 1fr;
     justify-content: start;
     margin-left: 0;
-    max-width: min(32rem, 100%);
+    max-width: 100%;
   }
 
   .hero-note-image {
@@ -515,11 +519,13 @@ a {
   }
 
   .hero-note {
-    min-height: clamp(19rem, 76vw, 31rem);
+    font-size: clamp(0.84rem, 3.8vw, 0.95rem);
+    line-height: 1.95;
+    min-height: clamp(31rem, 92svh, 42rem);
   }
 
   .hero-note p {
-    max-height: clamp(19rem, 82vw, 32rem);
+    max-height: clamp(31rem, 94svh, 43rem);
   }
 
   .body-poem {
