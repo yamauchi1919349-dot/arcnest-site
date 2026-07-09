@@ -83,116 +83,84 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <Reveal className="hero-note-panel reveal-delay-two">
-            <div className="hero-note-image" aria-hidden="true" />
-            <div className="hero-note">
-              <p>
-                現場を支える、
-                <br />
-                小さな仕組みをつくる。
-                <br />
-                <br />
-                便利なシステムは、
-                <br />
-                必ずしも大きく複雑である必要はありません。
-                <br />
-                <br />
-                現場には、
-                <br />
-                毎日の中に小さな「困った」があります。
-                <br />
-                <br />
-                少し面倒な記録。
-                <br />
-                何度も入力する同じ情報。
-                <br />
-                昔から続いている紙やExcelの管理。
-                <br />
-                <br />
-                でも多くの場合、
-                <br />
-                その不便は当たり前になっていて、
-                <br />
-                何を変えればいいのか、
-                <br />
-                まだ形になっていません。
-                <br />
-                <br />
-                ArcNestは、
-                <br />
-                まず小さな道具をつくります。
-                <br />
-                <br />
-                完成された答えを押し付けるのではなく、
-                <br />
-                現場に寄り添い、
-                <br />
-                実際に使う人の声を聞きながら、
-                <br />
-                一緒に考え、一緒に改善し、
-                <br />
-                その場所に合った仕組みへ育てていく。
-                <br />
-                <br />
-                昔の町工場が、
-                <br />
-                使う人の手に合わせて、
-                <br />
-                ひとつひとつ道具を調整していたように。
-                <br />
-                <br />
-                AIの時代だからこそ、
-                <br />
-                効率だけではなく、
-                <br />
-                そこで働く人や仕事の流れを大切にしたい。
-                <br />
-                <br />
-                ArcNestは、
-                <br />
-                現場と共につくり、
-                <br />
-                共に育てる、
-                <br />
-                小さなプロダクトスタジオです。
-              </p>
-            </div>
-          </Reveal>
-
           <span className="scroll-cue">Scroll to explore</span>
         </div>
       </section>
 
-      <section className="text-section" id="about">
-        <Reveal>
-          <div className="section-grid">
-            <SectionLabel>About</SectionLabel>
-            <div className="section-body">
-              <h2>
-                Not bigger.
-                <br />
-                Just better.
-              </h2>
-              <p className="body-poem">
-                大きなシステムが、
-                <br />
-                必ず良いとは限りません。
-                <br />
-                <br />
-                本当に必要なのは、
-                <br />
-                現場に自然となじみ、
-                <br />
-                迷わず使えること。
-                <br />
-                <br />
-                ArcNestは、
-                <br />
-                小さな課題を見つけ、
-                <br />
-                シンプルな仕組みに変えていきます。
-              </p>
-            </div>
+      <section className="philosophy-section" id="philosophy">
+        <Reveal className="hero-note-panel reveal-delay-two">
+          <div className="hero-note-image" aria-hidden="true" />
+          <div className="hero-note">
+            <p>
+              現場を支える、
+              <br />
+              小さな仕組みをつくる。
+              <br />
+              <br />
+              便利なシステムは、
+              <br />
+              必ずしも大きく複雑である必要はありません。
+              <br />
+              <br />
+              現場には、
+              <br />
+              毎日の中に小さな「困った」があります。
+              <br />
+              <br />
+              少し面倒な記録。
+              <br />
+              何度も入力する同じ情報。
+              <br />
+              昔から続いている紙やExcelの管理。
+              <br />
+              <br />
+              でも多くの場合、
+              <br />
+              その不便は当たり前になっていて、
+              <br />
+              何を変えればいいのか、
+              <br />
+              まだ形になっていません。
+              <br />
+              <br />
+              ArcNestは、
+              <br />
+              まず小さな道具をつくります。
+              <br />
+              <br />
+              完成された答えを押し付けるのではなく、
+              <br />
+              現場に寄り添い、
+              <br />
+              実際に使う人の声を聞きながら、
+              <br />
+              一緒に考え、一緒に改善し、
+              <br />
+              その場所に合った仕組みへ育てていく。
+              <br />
+              <br />
+              昔の町工場が、
+              <br />
+              使う人の手に合わせて、
+              <br />
+              ひとつひとつ道具を調整していたように。
+              <br />
+              <br />
+              AIの時代だからこそ、
+              <br />
+              効率だけではなく、
+              <br />
+              そこで働く人や仕事の流れを大切にしたい。
+              <br />
+              <br />
+              ArcNestは、
+              <br />
+              現場と共につくり、
+              <br />
+              共に育てる、
+              <br />
+              小さなプロダクトスタジオです。
+            </p>
           </div>
         </Reveal>
       </section>
@@ -256,7 +224,41 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="text-section" id="philosophy">
+      <section className="text-section" id="about">
+        <Reveal>
+          <div className="section-grid">
+            <SectionLabel>About</SectionLabel>
+            <div className="section-body">
+              <h2>
+                Not bigger.
+                <br />
+                Just better.
+              </h2>
+              <p className="body-poem">
+                大きなシステムが、
+                <br />
+                必ず良いとは限りません。
+                <br />
+                <br />
+                本当に必要なのは、
+                <br />
+                現場に自然となじみ、
+                <br />
+                迷わず使えること。
+                <br />
+                <br />
+                ArcNestは、
+                <br />
+                小さな課題を見つけ、
+                <br />
+                シンプルな仕組みに変えていきます。
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="text-section" id="flow">
         <Reveal>
           <div className="section-grid">
             <SectionLabel>Philosophy</SectionLabel>
