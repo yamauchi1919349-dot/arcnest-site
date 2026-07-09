@@ -258,8 +258,9 @@ a {
 }
 
 .philosophy-section .hero-note {
-  font-size: clamp(1.02rem, 1.35vw, 1.22rem);
-  line-height: 2.25;
+  font-size: clamp(0.82rem, 1.08vw, 0.98rem);
+  letter-spacing: 0;
+  line-height: 1.85;
   height: auto;
   max-width: none;
   min-height: 0;
@@ -572,8 +573,8 @@ a {
   }
 
   .philosophy-section .hero-note {
-    font-size: clamp(0.8rem, 3.5vw, 0.96rem);
-    line-height: 2;
+    font-size: clamp(0.72rem, 3.1vw, 0.84rem);
+    line-height: 1.75;
     max-width: 100%;
     min-height: 0;
     overflow: visible;
