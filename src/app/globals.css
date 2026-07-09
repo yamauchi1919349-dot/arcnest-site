@@ -302,6 +302,19 @@ a {
   line-height: 0.98;
 }
 
+.product-title-wrap {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem clamp(1rem, 1.8vw, 1.5rem);
+}
+
+.product-status {
+  color: var(--soft);
+  font-size: clamp(0.78rem, 0.95vw, 0.9rem);
+  line-height: 1;
+}
+
 .product-description {
   color: var(--muted);
   font-size: clamp(0.95rem, 1.25vw, 1.15rem);

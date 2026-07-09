@@ -14,7 +14,7 @@ const products = [
     title: "Timecard",
     subtitle: "Simple attendance management.",
     lines: ["毎日の打刻から、", "スタッフ管理、月次集計まで。", "現場で迷わず使える勤怠管理。"],
-    href: "https://timecard.arcnest.jp",
+    status: "準備中",
     image: "/images/products/timecard.png"
   },
   {
@@ -138,35 +138,54 @@ export default function Home() {
             <SectionLabel>Products</SectionLabel>
             <div className="products-list" aria-label="ArcNest products">
               <h2>Products</h2>
-              {products.map((product) => (
-                <a
-                  className="product-row"
-                  href={product.href}
-                  key={product.number}
-                  rel={product.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  target={product.href.startsWith("http") ? "_blank" : undefined}
-                >
-                  <span className="product-number">{product.number}</span>
-                  <span className="product-copy">
-                    <span className="product-title">{product.title}</span>
-                    <span className="product-subtitle">{product.subtitle}</span>
-                    <span className="product-description">
-                      {product.lines.map((line) => (
-                        <span key={line}>{line}</span>
-                      ))}
+              {products.map((product) => {
+                const productContent = (
+                  <>
+                    <span className="product-number">{product.number}</span>
+                    <span className="product-copy">
+                      <span className="product-title-wrap">
+                        <span className="product-title">{product.title}</span>
+                        {"status" in product ? (
+                          <span className="product-status">{product.status}</span>
+                        ) : null}
+                      </span>
+                      <span className="product-subtitle">{product.subtitle}</span>
+                      <span className="product-description">
+                        {product.lines.map((line) => (
+                          <span key={line}>{line}</span>
+                        ))}
+                      </span>
                     </span>
-                  </span>
-                  <span className="product-space" aria-hidden="true">
-                    <Image
-                      alt=""
-                      className="product-image"
-                      fill
-                      sizes="(max-width: 900px) calc(100vw - 6rem), 28vw"
-                      src={product.image}
-                    />
-                  </span>
-                </a>
-              ))}
+                    <span className="product-space" aria-hidden="true">
+                      <Image
+                        alt=""
+                        className="product-image"
+                        fill
+                        sizes="(max-width: 900px) calc(100vw - 6rem), 28vw"
+                        src={product.image}
+                      />
+                    </span>
+                  </>
+                );
+
+                const productHref = "href" in product ? product.href : undefined;
+
+                return productHref ? (
+                  <a
+                    className="product-row"
+                    href={productHref}
+                    key={product.number}
+                    rel={productHref.startsWith("http") ? "noopener noreferrer" : undefined}
+                    target={productHref.startsWith("http") ? "_blank" : undefined}
+                  >
+                    {productContent}
+                  </a>
+                ) : (
+                  <div className="product-row" key={product.number}>
+                    {productContent}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </Reveal>
