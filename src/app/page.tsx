@@ -269,20 +269,34 @@ export default function Home() {
       <PhilosophyVideoSection />
 
       <section className="contact-section" id="contact">
-        <Reveal>
-          <div className="contact-inner">
-            <SectionLabel>Contact</SectionLabel>
-            <div>
-              <h2>Start small.</h2>
-              <p>
-                小さな改善から、
-                <br />
-                仕事は変わる。
-              </p>
-              <a className="contact-button" href="mailto:support@arcnest.jp">
-                Contact
-              </a>
-            </div>
+        <Reveal className="contact-inner">
+          <p className="contact-word" aria-label="ArcNest">
+            <span className="brand-letter contact-letter contact-letter--major contact-letter--a1" aria-hidden="true">
+              A
+            </span>
+            <span className="brand-letter contact-letter contact-letter--minor contact-letter--r" aria-hidden="true">
+              r
+            </span>
+            <span className="brand-letter contact-letter contact-letter--minor contact-letter--c1" aria-hidden="true">
+              c
+            </span>
+            <span className="brand-letter contact-letter contact-letter--major contact-letter--n" aria-hidden="true">
+              N
+            </span>
+            <span className="brand-letter contact-letter contact-letter--minor contact-letter--e" aria-hidden="true">
+              e
+            </span>
+            <span className="brand-letter contact-letter contact-letter--minor contact-letter--s" aria-hidden="true">
+              s
+            </span>
+            <span className="brand-letter contact-letter contact-letter--major contact-letter--t2" aria-hidden="true">
+              t
+            </span>
+          </p>
+          <div className="contact-actions">
+            <a className="contact-button" href="mailto:support@arcnest.jp">
+              Contact
+            </a>
           </div>
         </Reveal>
       </section>
