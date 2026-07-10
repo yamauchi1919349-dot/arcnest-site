@@ -908,7 +908,9 @@ a {
     gap: clamp(1rem, 4vw, 1.5rem);
     grid-template-columns: minmax(6rem, 38vw) minmax(0, 1fr);
     height: var(--products-mobile-visual-height);
+    margin-left: calc(50% - 50vw);
     overflow: hidden;
+    width: calc(100% + (50vw - 50%));
   }
 
   .products-feature {
