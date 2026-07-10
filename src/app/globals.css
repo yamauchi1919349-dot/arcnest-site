@@ -903,8 +903,8 @@ a {
   }
 
   .products-showcase {
-    gap: clamp(3rem, 12vw, 5rem);
-    grid-template-columns: 1fr;
+    gap: clamp(1rem, 4vw, 1.5rem);
+    grid-template-columns: minmax(6rem, 38vw) minmax(0, 1fr);
     overflow: hidden;
   }
 
@@ -912,7 +912,8 @@ a {
     max-width: none;
     position: relative;
     top: auto;
-    width: min(38rem, 170vw);
+    transform: translateX(-48%);
+    width: min(22rem, 78vw);
   }
 
   .site-footer {
