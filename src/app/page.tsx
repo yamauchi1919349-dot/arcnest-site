@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
+import PhilosophyVideoSection from "./PhilosophyVideoSection";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -265,33 +266,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="text-section" id="flow">
-        <Reveal>
-          <div className="section-grid">
-            <SectionLabel>Philosophy</SectionLabel>
-            <div className="section-body">
-              <h2>
-                Less system.
-                <br />
-                More flow.
-              </h2>
-              <p className="body-poem">
-                システムを増やすことが、
-                <br />
-                改善ではない。
-                <br />
-                <br />
-                人の流れ、
-                <br />
-                仕事の流れを止めない。
-                <br />
-                <br />
-                そんな静かな道具を作ります。
-              </p>
-            </div>
-          </div>
-        </Reveal>
-      </section>
+      <PhilosophyVideoSection />
 
       <section className="contact-section" id="contact">
         <Reveal>
@@ -326,3 +301,4 @@ export default function Home() {
     </main>
   );
 }
+
