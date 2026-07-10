@@ -12,24 +12,24 @@ const navItems = [
 const products = [
   {
     number: "01",
-    title: "Timecard",
-    subtitle: "Simple attendance management.",
-    lines: ["毎日の打刻から、", "スタッフ管理、月次集計まで。", "現場で迷わず使える勤怠管理。"],
-    status: "準備中"
-  },
-  {
-    number: "02",
-    title: "Gibier Trace",
+    title: "森zin",
     subtitle: "Record life correctly.",
     lines: ["命の記録を、", "未来へつなぐ。", "個体管理・衛生管理・トレーサビリティを", "ひとつの流れへ。"],
     href: "#contact"
   },
   {
-    number: "03",
+    number: "02",
     title: "TaskOrbit",
     subtitle: "Find your next action.",
     lines: ["時間に追われるのではなく、", "今やるべきことを整える。", "新しい形のタスク管理。"],
     href: "#contact"
+  },
+  {
+    number: "03",
+    title: "Timecard",
+    subtitle: "Simple attendance management.",
+    lines: ["毎日の打刻から、", "スタッフ管理、月次集計まで。", "現場で迷わず使える勤怠管理。"],
+    status: "準備中"
   }
 ];
 
@@ -172,7 +172,7 @@ export default function Home() {
 
       <section className="products-section" id="products">
         <Reveal>
-          <div className="section-grid section-grid--wide">
+          <div className="products-layout">
             <SectionLabel>Products</SectionLabel>
             <div className="products-showcase">
               <div className="products-feature" aria-hidden="true">
