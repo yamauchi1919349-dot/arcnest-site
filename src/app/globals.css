@@ -903,17 +903,34 @@ a {
   }
 
   .products-showcase {
+    --products-mobile-visual-height: clamp(18rem, 96vw, 27rem);
+    align-items: stretch;
     gap: clamp(1rem, 4vw, 1.5rem);
     grid-template-columns: minmax(6rem, 38vw) minmax(0, 1fr);
+    height: var(--products-mobile-visual-height);
     overflow: hidden;
   }
 
   .products-feature {
+    height: var(--products-mobile-visual-height);
     max-width: none;
     position: relative;
     top: auto;
     transform: translateX(-48%);
-    width: min(22rem, 78vw);
+    width: clamp(14.4rem, 76.8vw, 21.6rem);
+  }
+
+  .products-list {
+    height: var(--products-mobile-visual-height);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .products-list::-webkit-scrollbar {
+    display: none;
   }
 
   .site-footer {
