@@ -89,7 +89,14 @@ export default function Home() {
 
       <section className="philosophy-section" id="philosophy">
         <Reveal className="hero-note-panel reveal-delay-two">
-          <div className="hero-note-image" aria-hidden="true" />
+          <div className="philosophy-visual">
+            <p className="philosophy-image-copy">
+              <span>Start small.</span>
+              <span>小さな改善から、</span>
+              <span>仕事は大きく変わる。</span>
+            </p>
+            <div className="hero-note-image" aria-hidden="true" />
+          </div>
           <div className="hero-note">
             <p>
               現場を支える、
