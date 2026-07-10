@@ -585,7 +585,7 @@ a {
   }
 
   .philosophy-section .hero-note-image {
-    align-self: flex-start;
+    align-self: flex-end;
     aspect-ratio: 4 / 5;
     width: min(18rem, 64vw);
   }
